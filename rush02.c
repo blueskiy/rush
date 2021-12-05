@@ -45,7 +45,7 @@ void	rush(int x, int y)
 	width = 1;
 	while (height <= y)
 	{
-        printMatrix(x, y, width, height);
+        print_matrix(x, y, width, height);
 		height++;
 		if (x > 0)
 		{
