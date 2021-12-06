@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blueskiy <blueskiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 11:52:40 by blueskiy          #+#    #+#             */
-/*   Updated: 2021/12/06 11:52:43 by blueskiy         ###   ########.fr       */
+/*   Created: 2021/12/06 11:52:21 by blueskiy          #+#    #+#             */
+/*   Updated: 2021/12/06 11:52:22 by blueskiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@ void	ft_putchar(char c);
 
 void	print_matrix(int x, int y, int width, int height)
 {
+	int	last_position;
+
 	while (width <= x)
 	{
-		if ((width == 1 || width == x) && height == 1)
+		last_position = (height == y && width == x && height > 1 && width > 1);
+		if ((height == 1 && width == 1) || last_position)
 		{
-			ft_putchar('A');
+			ft_putchar('/');
 		}
-		else if ((width == 1 || width == x) && height == y)
+		else if ((height == 1 && width == x) || (height == y && width == 1))
 		{
-			ft_putchar('C');
+			ft_putchar('\\');
 		}
 		else if ((width != 1 && width != x) && (height != 1 && height != y))
 		{
@@ -30,7 +33,7 @@ void	print_matrix(int x, int y, int width, int height)
 		}
 		else
 		{
-			ft_putchar('B');
+			ft_putchar('*');
 		}
 		width++;
 	}
@@ -38,11 +41,11 @@ void	print_matrix(int x, int y, int width, int height)
 
 void	rush(int x, int y)
 {
-	int	width;
 	int	height;
+	int	width;
 
-	width = 1;
 	height = 1;
+	width = 1;
 	while (height <= y)
 	{
 		print_matrix(x, y, width, height);

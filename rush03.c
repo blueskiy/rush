@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blueskiy <blueskiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 11:52:40 by blueskiy          #+#    #+#             */
-/*   Updated: 2021/12/06 11:52:43 by blueskiy         ###   ########.fr       */
+/*   Created: 2021/12/06 11:52:56 by blueskiy          #+#    #+#             */
+/*   Updated: 2021/12/06 11:52:57 by blueskiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	print_matrix(int x, int y, int width, int height)
 {
 	while (width <= x)
 	{
-		if ((width == 1 || width == x) && height == 1)
+		if ((height == 1 || height == y) && width == 1)
 		{
 			ft_putchar('A');
 		}
-		else if ((width == 1 || width == x) && height == y)
+		else if ((height == 1 || height == y) && width == x)
 		{
 			ft_putchar('C');
 		}
@@ -38,11 +38,11 @@ void	print_matrix(int x, int y, int width, int height)
 
 void	rush(int x, int y)
 {
-	int	width;
 	int	height;
+	int	width;
 
-	width = 1;
 	height = 1;
+	width = 1;
 	while (height <= y)
 	{
 		print_matrix(x, y, width, height);
